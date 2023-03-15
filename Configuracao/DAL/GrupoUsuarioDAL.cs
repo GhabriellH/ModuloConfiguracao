@@ -1,35 +1,181 @@
 ﻿using Models;
 using System.Collections.Generic;
 using System;
+using System.Data.SqlClient;
+using System.Security.Cryptography;
 
 namespace DAL
 {
     public class GrupoUsuarioDAL
     {
+        SqlConnection cn = new SqlConnection(Conexao.StringDeConexao);
         public void Iserir(GrupoUsuario _grupoUsuario)
         {
-
-        }
-        public List<GrupoUsuario> BuscarTodos()
-        {
-            throw new NotImplementedException();
-        }
-        public List<GrupoUsuario> BuscarPorNomeGrupo(string _nomeGrupo)
-        {
-            throw new NotImplementedException();
-        }
-        public List<GrupoUsuario> BuscarPorId(int _id)
-        {
-            throw new NotImplementedException();
+            try
+            {
+                SqlCommand cmd = cn.CreateCommand();
+                cmd.CommandText = @"INSERT INTO GrupoUsuario(NomeGrupo)
+                                    VALUES(@NomeGrupo)";
+                cmd.CommandType = System.Data.CommandType.Text;
+                cmd.Parameters.AddWithValue("@NomeGrupo", _grupoUsuario.NomeGrupo);
+                cmd.Connection = cn;
+                cn.Open();
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Ocorreu erro ao tentar inserir um grupo de usuario no banco de dados", ex);
+            }
+            finally
+            {
+                cn.Close();
+            }
         }
 
         public void Alterar(GrupoUsuario _grupoUsuario)
         {
-
+            try
+            {
+                SqlCommand cmd = cn.CreateCommand();
+                cmd.CommandText = "UPDATE GrupoUsuario SET NomeGrupo=@NomeGrupo WHERE Id = @Id";
+                cmd.CommandType = System.Data.CommandType.Text;
+                cmd.Parameters.AddWithValue("@NomeGrupo", _grupoUsuario.NomeGrupo);
+                cmd.Connection = cn;
+                cn.Open();
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Ocorreu erro ao tentar alterar um grupo de usuario no banco de dados", ex);
+            }
+            finally
+            {
+                cn.Close();
+            }
         }
         public void Excluir(int _id)
         {
+            try
+            {
+                SqlCommand cmd = cn.CreateCommand();
+                cmd.CommandText = "DELETE FROM GrupoUsuario WHERE Id = @Id";
+                cmd.CommandType = System.Data.CommandType.Text;
+                cmd.Parameters.AddWithValue("@Id", _id);
+                cmd.Connection = cn;
+                cn.Open();
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Ocorreu erro ao tentar excluir um grupo de usuario no banco de dados", ex);
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
+        public List<GrupoUsuario> BuscarTodos()
+        {
+            List<GrupoUsuario> grupoUsuarios = new List<GrupoUsuario>();
+            GrupoUsuario grupoUsuario;
+            try
+            {
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = cn;
+                cmd.CommandText = "SELECT Id, NomeGrupo FROM GrupoUsuario";
+                cmd.CommandType = System.Data.CommandType.Text;
+                cn.Open();
+                using (SqlDataReader rd = cmd.ExecuteReader())
+                {
+                    while (rd.Read())
+                    {
+                        grupoUsuario = new GrupoUsuario();
+                        grupoUsuario.Id = Convert.ToInt32(rd["Id"]);
+                        grupoUsuario.NomeGrupo = rd["NomeGrupo"].ToString();
+                        grupoUsuarios.Add(grupoUsuario);
+                    }
+                }
+                return grupoUsuarios;
+            }
+            catch (Exception ex)
+            {
 
+                throw new Exception("Ocorreu um erro ao tentar buscar todos os grupos usuários do banco de dados", ex);
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
+        public List<GrupoUsuario> BuscarPorNomeGrupo(string _nomeGrupo)
+        {
+            List<GrupoUsuario> grupoUsuarios = new List<GrupoUsuario>();
+            GrupoUsuario grupoUsuario;
+            try
+            {
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = cn;
+                cmd.CommandText = "SELECT Id, NomeGrupo FROM GrupoUsuario WHERE NomeGrupo LIKE @NomeGrupo";
+                cmd.CommandType = System.Data.CommandType.Text;
+
+                cmd.Parameters.AddWithValue("@NomeGrupo", "%" + _nomeGrupo + "%");
+                cn.Open();
+                using (SqlDataReader rd = cmd.ExecuteReader())
+                {
+                    while (rd.Read())
+                    {
+                        grupoUsuario = new GrupoUsuario();
+                        grupoUsuario.Id = Convert.ToInt32(rd["Id"]);
+                        grupoUsuario.NomeGrupo = rd["NomeGrupo"].ToString();
+                        grupoUsuarios.Add(grupoUsuario);
+                    }
+                }
+                return grupoUsuarios;
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception("Ocorreu um erro ao tentar buscar todos os grupos de usuários do banco de dados", ex);
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
+        public GrupoUsuario BuscarPorId(int _id)
+        {
+            GrupoUsuario grupoUsuario = new GrupoUsuario();
+            try
+            {
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = cn;
+                cmd.CommandText = "SELECT Id, NomeGrupo FROM GrupoUsuario WHERE Id = @Id";
+                cmd.CommandType = System.Data.CommandType.Text;
+
+                cmd.Parameters.AddWithValue("@Id", _id);
+                cn.Open();
+                using (SqlDataReader rd = cmd.ExecuteReader())
+                {
+                    if (rd.Read())
+                    {
+                        grupoUsuario = new GrupoUsuario();
+                        grupoUsuario.Id = Convert.ToInt32(rd["ID"]);
+                        grupoUsuario.NomeGrupo = rd["NomeGrupo"].ToString();
+                        
+                    }
+                }
+                return grupoUsuario;
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception("Ocorreu um erro ao tentar buscar os usuários por id do banco de dados", ex);
+            }
+            finally
+            {
+                cn.Close();
+            }
         }
     }
 }
+
