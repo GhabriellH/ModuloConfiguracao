@@ -9,7 +9,8 @@ namespace BLL
     {
         private void ValidarDados(Permissao _permissao)
         {
-            
+            if (_permissao.Descricao.Length <= 10)
+                throw new Exception("A senha deve ter mais de 10 caracteres.");
         }
         public void Inserir(Permissao _permissao)
         {

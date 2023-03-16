@@ -7,9 +7,10 @@ namespace BLL
 {
     public class GrupoUsuarioBLL
     {
-        private void ValidarDados(GrupoUsuario _grupousuario)
+        private void ValidarDados(GrupoUsuario _grupoUsuario)
         {
-            
+            if (_grupoUsuario.NomeGrupo.Length <= 10)
+                throw new Exception("A senha deve ter mais de 10 caracteres.");
         }
         public void Inserir(GrupoUsuario _grupoUsuario)
         {
