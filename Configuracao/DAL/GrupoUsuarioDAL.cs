@@ -9,7 +9,7 @@ namespace DAL
     public class GrupoUsuarioDAL
     {
         SqlConnection cn = new SqlConnection(Conexao.StringDeConexao);
-        public void Iserir(GrupoUsuario _grupoUsuario)
+        public void Inserir(GrupoUsuario _grupoUsuario)
         {
             try
             {

@@ -6,10 +6,10 @@ using System.Security.Cryptography;
 
 namespace DAL
 {
-    internal class PermissaoDAL
+    public class PermissaoDAL
     {
         SqlConnection cn = new SqlConnection(Conexao.StringDeConexao);
-        public void Iserir(Permissao _permissao, SqlConnection sqlConnection)
+        public void Inserir(Permissao _permissao)
         {
             try
             {   

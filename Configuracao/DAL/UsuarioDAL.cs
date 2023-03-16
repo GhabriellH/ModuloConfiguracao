@@ -10,7 +10,7 @@ namespace DAL
 {
     public class UsuarioDAL
     {
-        public void Iserir(Usuario _usuario, SqlConnection sqlConnection)
+        public void Inserir(Usuario _usuario)
         {
             SqlConnection cn = new SqlConnection(Conexao.StringDeConexao);
             try
@@ -106,7 +106,7 @@ namespace DAL
                     while (rd.Read())
                     {
                         usuario = new Usuario();
-                        usuario.Id = Convert.ToInt32(rd["ID"]);
+                        usuario.Id = Convert.ToInt32(rd["Id"]);
                         usuario.Nome = rd["Nome"].ToString();
                         usuario.NomeUsuario = rd["NomeUsuario"].ToString();
                         usuario.Email = rd["Email"].ToString();
@@ -250,7 +250,7 @@ namespace DAL
             }
 
         }
-        public Usuario BuscarPorCPF(int _cPF)
+        public Usuario BuscarPorCPF(string _cPF)
         {
             SqlConnection cn = new SqlConnection(Conexao.StringDeConexao);
             Usuario usuario = new Usuario();
