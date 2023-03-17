@@ -36,6 +36,11 @@ namespace WindowsFormsAppPrinciapal
 
         private void buttonExcluirUsuario_Click(object sender, EventArgs e)
         {
+            if (usuarioBindingSource.Count <= 0)
+            {
+                MessageBox.Show("Não existe registro para ser excluido.");
+                return;
+            }
             if (MessageBox.Show("Deseja realmente excluir este registro?", "Atenção", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
                 return;
 
