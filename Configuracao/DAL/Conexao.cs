@@ -7,8 +7,8 @@
             get
             {
                 return @"User ID=SA;    
-                        Inital Catalog=Configuracao; 
-                        Data Sourse=.\SQLEXPRESS2019;
+                        Initial Catalog=Configuracao; 
+                        Data Source=.\SQLEXPRESS2019;
                         Password=Senailab02";
             }
         }
