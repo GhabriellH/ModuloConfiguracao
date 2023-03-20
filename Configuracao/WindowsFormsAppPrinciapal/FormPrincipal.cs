@@ -17,20 +17,19 @@ namespace WindowsFormsAppPrinciapal
         public FormPrincipal()
         {
             InitializeComponent();
-            Usuario usuario = new Usuario();
-            usuario.Nome = "Ghabriell";
-            usuario.NomeUsuario = "teste";
-            usuario.Ativo = true;
-            usuario.CPF = "123.456.789-01";
-            usuario.Senha = "123456";
-            usuario.Email = "Ghabriellhenrick@gmail.com";
-
-            new UsuarioBLL().Inserir(usuario);
         }
 
         private void usuáriosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             using(FormBuscarUsuario frm = new FormBuscarUsuario())
+            {
+                frm.ShowDialog();
+            }
+        }
+
+        private void gruposDeUsuariosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (FormBuscarGrupoUsuario frm = new FormBuscarGrupoUsuario())
             {
                 frm.ShowDialog();
             }

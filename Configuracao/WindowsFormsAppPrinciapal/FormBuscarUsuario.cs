@@ -17,6 +17,7 @@ namespace WindowsFormsAppPrinciapal
         public FormBuscarUsuario()
         {
             InitializeComponent();
+            
         }
 
         private void FormBuscarUsuario_Load(object sender, EventArgs e)
@@ -27,11 +28,16 @@ namespace WindowsFormsAppPrinciapal
         private void buttonBuscar_Click(object sender, EventArgs e)
         {
             usuarioBindingSource.DataSource = new UsuarioBLL().BuscarTodos();
+            //gruposUsuarioBindingSource.DataSource = new GrupoUsuarioBLL().BuscarTodos();
         }
 
         private void buttonAdicionarUsuario_Click(object sender, EventArgs e)
         {
-            
+            using (FormCadastroUsuario frm = new FormCadastroUsuario())
+            {
+                frm.ShowDialog();
+            }
+            buttonBuscar_Click(null, null);
         }
 
         private void buttonExcluirUsuario_Click(object sender, EventArgs e)
@@ -49,6 +55,33 @@ namespace WindowsFormsAppPrinciapal
             usuarioBindingSource.RemoveCurrent();
 
             MessageBox.Show("Registro excluido com sucesso!");
+        }
+
+        private void buttonExcluirGrupoUsuario_Click(object sender, EventArgs e)
+        {
+            if (gruposUsuarioBindingSource.Count <= 0)
+            {
+                MessageBox.Show("Não existe registro para ser excluido.");
+                return;
+            }
+            if (MessageBox.Show("Deseja realmente excluir este registro?", "Atenção", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
+                return;
+
+            int id = ((GrupoUsuario)gruposUsuarioBindingSource.Current).Id;
+            new GrupoUsuarioBLL().Excluir(id);
+            gruposUsuarioBindingSource.RemoveCurrent();
+
+            MessageBox.Show("Registro excluido com sucesso!");
+        }
+
+        private void buttonAlterar_Click(object sender, EventArgs e)
+        {
+            int id = ((Usuario)usuarioBindingSource.Current).Id;
+            using (FormCadastroUsuario frm = new FormCadastroUsuario(id))
+            {
+                frm.ShowDialog();
+            }
+            buttonBuscar_Click(null, null);
         }
     }
 }

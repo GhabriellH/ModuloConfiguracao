@@ -40,6 +40,7 @@ namespace DAL
                 cmd.CommandText = "UPDATE GrupoUsuario SET NomeGrupo=@NomeGrupo WHERE Id = @Id";
                 cmd.CommandType = System.Data.CommandType.Text;
                 cmd.Parameters.AddWithValue("@NomeGrupo", _grupoUsuario.NomeGrupo);
+                cmd.Parameters.AddWithValue("@Id", _grupoUsuario.Id);
                 cmd.Connection = cn;
                 cn.Open();
                 cmd.ExecuteNonQuery();
