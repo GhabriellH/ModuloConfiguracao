@@ -27,17 +27,31 @@ namespace WindowsFormsAppPrinciapal
 
         private void buttonBuscar_Click(object sender, EventArgs e)
         {
-            usuarioBindingSource.DataSource = new UsuarioBLL().BuscarTodos();
-            //gruposUsuarioBindingSource.DataSource = new GrupoUsuarioBLL().BuscarTodos();
+            try
+            {
+                usuarioBindingSource.DataSource = new UsuarioBLL().BuscarTodos();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void buttonAdicionarUsuario_Click(object sender, EventArgs e)
         {
-            using (FormCadastroUsuario frm = new FormCadastroUsuario())
+            try
             {
-                frm.ShowDialog();
+                new UsuarioBLL().ValidarPermissao(2);
+                using (FormCadastroUsuario frm = new FormCadastroUsuario())
+                {
+                    frm.ShowDialog();
+                }
+                buttonBuscar_Click(null, null);
             }
-            buttonBuscar_Click(null, null);
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void buttonExcluirUsuario_Click(object sender, EventArgs e)
