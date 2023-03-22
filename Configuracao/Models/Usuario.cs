@@ -12,6 +12,6 @@ namespace Models
         public string CPF { get; set; }
         public bool Ativo { get; set; }
 
-        public List<GrupoUsuario> GruposUsuario { get; set; }
+        public List<GrupoUsuario> GruposUsuarios { get; set; }
     }
 }

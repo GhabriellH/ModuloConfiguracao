@@ -16,9 +16,9 @@ namespace BLL
         }
         public void ValidarPermissao(int _idPermissao)
         {
-             if (!new UsuarioDAL().ValidarPermissao(Constantes.IdUsuarioLogado, _idPermissao))
+            if (!new UsuarioDAL().ValidarPermissao(Constantes.IdUsuarioLogado, _idPermissao))
                 throw new Exception("Você não tem premissão de realizar essa operação. Procure o adiministrador de sistemas");
-           
+
         }
         public void Inserir(Usuario _usuario)
         {
@@ -59,6 +59,12 @@ namespace BLL
         {
             ValidarPermissao(1);
             return new UsuarioDAL().BuscarPorCPF(_cPF);
+        }
+
+        public void AdicionarGrupoUsuario(int _idUsuario, int _idGrupoUsuario)
+        {
+            if (!new UsuarioDAL().UsuarioPertenceAoGrupo(_idUsuario, _idGrupoUsuario))
+                new UsuarioDAL().AdicionarGrupoUsuario(_idUsuario, _idGrupoUsuario);
         }
 
     }

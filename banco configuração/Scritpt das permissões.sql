@@ -1,3 +1,5 @@
+--INSERIR PERMISSÃO HA TABEL PERMISSAO
+SELECT*FROM Permissao
 INSERT INTO Permissao(Id, Descricao)VALUES(1,'Visualizar usuário')
 INSERT INTO Permissao(Id, Descricao)VALUES(2,'Cadastrar usuário')
 INSERT INTO Permissao(Id, Descricao)VALUES(3,'Alterar usuário')
@@ -8,8 +10,8 @@ INSERT INTO Permissao(Id, Descricao)VALUES(7,'Alterar grupo de usuário')
 INSERT INTO Permissao(Id, Descricao)VALUES(8,'Excluir grupo de usuário')
 INSERT INTO Permissao(Id, Descricao)VALUES(9,'Adicionar permissão a um grupo de usuário')
 INSERT INTO Permissao(Id, Descricao)VALUES(10,'Adicionar grupo de usuário a um usuário')
-SELECT*FROM Permissao
 
+--INSERIR OS GRUPOS DE USUARIO HA TABELA GRUPOUSUARIO 
 SELECT*FROM GrupoUsuario
 INSERT INTO GrupoUsuario(NomeGrupo)VALUES('Gerente')
 INSERT INTO GrupoUsuario(NomeGrupo)VALUES('Vendedor')
@@ -17,11 +19,9 @@ INSERT INTO GrupoUsuario(NomeGrupo)VALUES('Estoquista')
 INSERT INTO GrupoUsuario(NomeGrupo)VALUES('Fiscal de caixa')
 INSERT INTO GrupoUsuario(NomeGrupo)VALUES('Operador de caixa')
 
-SELECT*FROM Usuario
 
 SELECT*FROM PermissaoGrupoUsuario
-SELECT*FROM UsuarioGrupoUsuario
-
+--INSERIR AS PERMISSÕES DADAS A CADA GRUPO DE USUSARIO
 INSERT INTO PermissaoGrupoUsuario(IdGrupoUsuario, IdPermissao) VALUES(18,1)
 INSERT INTO PermissaoGrupoUsuario(IdGrupoUsuario, IdPermissao) VALUES(18,2)
 INSERT INTO PermissaoGrupoUsuario(IdGrupoUsuario, IdPermissao) VALUES(18,3)
@@ -33,15 +33,27 @@ INSERT INTO PermissaoGrupoUsuario(IdGrupoUsuario, IdPermissao) VALUES(18,8)
 INSERT INTO PermissaoGrupoUsuario(IdGrupoUsuario, IdPermissao) VALUES(18,9)
 INSERT INTO PermissaoGrupoUsuario(IdGrupoUsuario, IdPermissao) VALUES(18,10)
 
+--INSERIR GRUPO DE USUARIO AO USUARIO
 INSERT INTO UsuarioGrupoUsuario(IdGrupoUsuario, IdUsuario) VALUES(18,24)
-
-
-SELECT*FROM Usuario
 SELECT*FROM UsuarioGrupoUsuario
 
-DECLARE @IdUsuario INT = 14
-DECLARE @IdPermissao INT = 14
+
+
+--VERIFICANDO SE O USUARIO TEM PERMISSÃO.
+GO
+DECLARE @IdUsuario INT = 24
+DECLARE @IdPermissao INT = 11
 
 SELECT 1 FROM PermissaoGrupoUsuario
 INNER JOIN UsuarioGrupoUsuario ON PermissaoGrupoUsuario.IdGrupoUsuario = UsuarioGrupoUsuario.IdGrupoUsuario
 WHERE UsuarioGrupoUsuario.IdUsuario = @IdUsuario AND PermissaoGrupoUsuario.IdPermissao = @IdPermissao
+
+
+--BUSCAR O GRUPO EM QUE O USUARIO PERTENCE
+SELECT * FROM UsuarioGrupoUsuario
+GO
+DECLARE @IdUsuario INT = 24
+
+SELECT GrupoUsuario.Id, GrupoUsuario.NomeGrupo FROM GrupoUsuario
+INNER JOIN UsuarioGrupoUsuario ON GrupoUsuario.Id = UsuarioGrupoUsuario.IdGrupoUsuario
+WHERE UsuarioGrupoUsuario.IdUsuario = @IdUsuario
