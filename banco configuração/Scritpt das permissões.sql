@@ -57,3 +57,7 @@ DECLARE @IdUsuario INT = 24
 SELECT GrupoUsuario.Id, GrupoUsuario.NomeGrupo FROM GrupoUsuario
 INNER JOIN UsuarioGrupoUsuario ON GrupoUsuario.Id = UsuarioGrupoUsuario.IdGrupoUsuario
 WHERE UsuarioGrupoUsuario.IdUsuario = @IdUsuario
+
+
+SELECT 1 FROM UsuarioGrupoUsuario 
+WHERE IdUsuario = @IdUsuario AND IdGrupoUsuario = @IdGrupoUsuario
