@@ -54,10 +54,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.usuarioBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
-            // usuarioBindingSource
-            // 
-            this.usuarioBindingSource.DataSource = typeof(Models.Usuario);
-            // 
             // nomeLabel
             // 
             nomeLabel.AutoSize = true;
@@ -66,14 +62,6 @@
             nomeLabel.Size = new System.Drawing.Size(44, 16);
             nomeLabel.TabIndex = 1;
             nomeLabel.Text = "Nome";
-            // 
-            // nomeTextBox
-            // 
-            this.nomeTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.usuarioBindingSource, "Nome", true));
-            this.nomeTextBox.Location = new System.Drawing.Point(12, 92);
-            this.nomeTextBox.Name = "nomeTextBox";
-            this.nomeTextBox.Size = new System.Drawing.Size(311, 22);
-            this.nomeTextBox.TabIndex = 2;
             // 
             // cPFLabel
             // 
@@ -84,14 +72,6 @@
             cPFLabel.TabIndex = 3;
             cPFLabel.Text = "CPF";
             // 
-            // cPFTextBox
-            // 
-            this.cPFTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.usuarioBindingSource, "CPF", true));
-            this.cPFTextBox.Location = new System.Drawing.Point(329, 92);
-            this.cPFTextBox.Name = "cPFTextBox";
-            this.cPFTextBox.Size = new System.Drawing.Size(130, 22);
-            this.cPFTextBox.TabIndex = 4;
-            // 
             // emailLabel
             // 
             emailLabel.AutoSize = true;
@@ -100,14 +80,6 @@
             emailLabel.Size = new System.Drawing.Size(45, 16);
             emailLabel.TabIndex = 5;
             emailLabel.Text = "E-mail";
-            // 
-            // emailTextBox
-            // 
-            this.emailTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.usuarioBindingSource, "Email", true));
-            this.emailTextBox.Location = new System.Drawing.Point(465, 92);
-            this.emailTextBox.Name = "emailTextBox";
-            this.emailTextBox.Size = new System.Drawing.Size(233, 22);
-            this.emailTextBox.TabIndex = 6;
             // 
             // nomeUsuarioLabel
             // 
@@ -118,14 +90,6 @@
             nomeUsuarioLabel.TabIndex = 7;
             nomeUsuarioLabel.Text = "Nome de usuário";
             // 
-            // nomeUsuarioTextBox
-            // 
-            this.nomeUsuarioTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.usuarioBindingSource, "NomeUsuario", true));
-            this.nomeUsuarioTextBox.Location = new System.Drawing.Point(12, 136);
-            this.nomeUsuarioTextBox.Name = "nomeUsuarioTextBox";
-            this.nomeUsuarioTextBox.Size = new System.Drawing.Size(193, 22);
-            this.nomeUsuarioTextBox.TabIndex = 8;
-            // 
             // senhaLabel
             // 
             senhaLabel.AutoSize = true;
@@ -135,6 +99,42 @@
             senhaLabel.TabIndex = 9;
             senhaLabel.Text = "Senha";
             // 
+            // usuarioBindingSource
+            // 
+            this.usuarioBindingSource.DataSource = typeof(Models.Usuario);
+            // 
+            // nomeTextBox
+            // 
+            this.nomeTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.usuarioBindingSource, "Nome", true));
+            this.nomeTextBox.Location = new System.Drawing.Point(12, 92);
+            this.nomeTextBox.Name = "nomeTextBox";
+            this.nomeTextBox.Size = new System.Drawing.Size(311, 22);
+            this.nomeTextBox.TabIndex = 2;
+            // 
+            // cPFTextBox
+            // 
+            this.cPFTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.usuarioBindingSource, "CPF", true));
+            this.cPFTextBox.Location = new System.Drawing.Point(329, 92);
+            this.cPFTextBox.Name = "cPFTextBox";
+            this.cPFTextBox.Size = new System.Drawing.Size(130, 22);
+            this.cPFTextBox.TabIndex = 4;
+            // 
+            // emailTextBox
+            // 
+            this.emailTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.usuarioBindingSource, "Email", true));
+            this.emailTextBox.Location = new System.Drawing.Point(465, 92);
+            this.emailTextBox.Name = "emailTextBox";
+            this.emailTextBox.Size = new System.Drawing.Size(233, 22);
+            this.emailTextBox.TabIndex = 6;
+            // 
+            // nomeUsuarioTextBox
+            // 
+            this.nomeUsuarioTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.usuarioBindingSource, "NomeUsuario", true));
+            this.nomeUsuarioTextBox.Location = new System.Drawing.Point(12, 136);
+            this.nomeUsuarioTextBox.Name = "nomeUsuarioTextBox";
+            this.nomeUsuarioTextBox.Size = new System.Drawing.Size(193, 22);
+            this.nomeUsuarioTextBox.TabIndex = 8;
+            // 
             // senhaTextBox
             // 
             this.senhaTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.usuarioBindingSource, "Senha", true));
@@ -142,6 +142,7 @@
             this.senhaTextBox.Name = "senhaTextBox";
             this.senhaTextBox.Size = new System.Drawing.Size(112, 22);
             this.senhaTextBox.TabIndex = 10;
+            this.senhaTextBox.TextChanged += new System.EventHandler(this.senhaTextBox_TextChanged);
             // 
             // ativoCheckBox
             // 
@@ -180,7 +181,6 @@
             this.label2.TabIndex = 15;
             this.label2.Text = "Cadastro de usuários";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            
             // 
             // buttonSalvar
             // 

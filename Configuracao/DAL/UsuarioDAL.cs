@@ -309,7 +309,7 @@ namespace DAL
                 cn.Open();
                 using (SqlDataReader rd = cmd.ExecuteReader())
                 {
-                    if(rd.Read())
+                    if (rd.Read())
                         return true;
                 }
                 return false;
@@ -376,6 +376,30 @@ namespace DAL
             {
 
                 throw new Exception("Ocorreu um erro ao tentar existência de grupo vinculado a um usuário no banco de dados", ex);
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
+        public void RemoverGrupoUsuario(int _idUsuario, int _idGrupoUsuario)
+        {
+            SqlConnection cn = new SqlConnection(Conexao.StringDeConexao);
+            try
+            {
+                SqlCommand cmd = cn.CreateCommand();
+                cmd.CommandText = @"DELETE FROM UsuarioGrupoUsuario 
+                                    WHERE IdUsuario = @IdUsuario AND IdGrupoUsuario = @IdGrupoUsuario";
+                cmd.CommandType = System.Data.CommandType.Text;
+                cmd.Parameters.AddWithValue("@IdUsuario", _idUsuario);
+                cmd.Parameters.AddWithValue("@IdGrupoUsuario", _idGrupoUsuario);
+                cmd.Connection = cn;
+                cn.Open();
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Ocorreu erro ao tentar remover um grupo de um usuario no banco de dados", ex);
             }
             finally
             {

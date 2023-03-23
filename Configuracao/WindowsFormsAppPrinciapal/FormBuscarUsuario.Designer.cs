@@ -30,12 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             this.usuarioDataGridView = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.usuarioBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gruposUsuarioDataGridView = new System.Windows.Forms.DataGridView();
             this.nomeGrupoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -47,6 +41,12 @@
             this.buttonExcluirUsuario = new System.Windows.Forms.Button();
             this.buttonExcluirGrupoUsuario = new System.Windows.Forms.Button();
             this.buttonAdicionarGrupoUsuario = new System.Windows.Forms.Button();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.usuarioDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.usuarioBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gruposUsuarioDataGridView)).BeginInit();
@@ -68,67 +68,13 @@
             this.dataGridViewTextBoxColumn6,
             this.dataGridViewCheckBoxColumn1});
             this.usuarioDataGridView.DataSource = this.usuarioBindingSource;
-            this.usuarioDataGridView.Location = new System.Drawing.Point(9, 52);
+            this.usuarioDataGridView.Location = new System.Drawing.Point(9, 95);
             this.usuarioDataGridView.Name = "usuarioDataGridView";
             this.usuarioDataGridView.ReadOnly = true;
             this.usuarioDataGridView.RowHeadersWidth = 51;
             this.usuarioDataGridView.RowTemplate.Height = 24;
             this.usuarioDataGridView.Size = new System.Drawing.Size(1016, 370);
             this.usuarioDataGridView.TabIndex = 1;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "Id";
-            this.dataGridViewTextBoxColumn1.HeaderText = "Id";
-            this.dataGridViewTextBoxColumn1.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            this.dataGridViewTextBoxColumn1.Width = 125;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "Nome";
-            this.dataGridViewTextBoxColumn2.HeaderText = "Nome";
-            this.dataGridViewTextBoxColumn2.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "NomeUsuario";
-            this.dataGridViewTextBoxColumn3.HeaderText = "Nome de Usuário";
-            this.dataGridViewTextBoxColumn3.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
-            this.dataGridViewTextBoxColumn3.Width = 200;
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.DataPropertyName = "Email";
-            this.dataGridViewTextBoxColumn5.HeaderText = "E-mail";
-            this.dataGridViewTextBoxColumn5.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            this.dataGridViewTextBoxColumn5.ReadOnly = true;
-            this.dataGridViewTextBoxColumn5.Width = 200;
-            // 
-            // dataGridViewTextBoxColumn6
-            // 
-            this.dataGridViewTextBoxColumn6.DataPropertyName = "CPF";
-            this.dataGridViewTextBoxColumn6.HeaderText = "CPF";
-            this.dataGridViewTextBoxColumn6.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            this.dataGridViewTextBoxColumn6.ReadOnly = true;
-            this.dataGridViewTextBoxColumn6.Width = 125;
-            // 
-            // dataGridViewCheckBoxColumn1
-            // 
-            this.dataGridViewCheckBoxColumn1.DataPropertyName = "Ativo";
-            this.dataGridViewCheckBoxColumn1.HeaderText = "Ativo";
-            this.dataGridViewCheckBoxColumn1.MinimumWidth = 6;
-            this.dataGridViewCheckBoxColumn1.Name = "dataGridViewCheckBoxColumn1";
-            this.dataGridViewCheckBoxColumn1.ReadOnly = true;
-            this.dataGridViewCheckBoxColumn1.Width = 47;
             // 
             // usuarioBindingSource
             // 
@@ -144,7 +90,7 @@
             this.gruposUsuarioDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.nomeGrupoDataGridViewTextBoxColumn});
             this.gruposUsuarioDataGridView.DataSource = this.gruposUsuariosBindingSource;
-            this.gruposUsuarioDataGridView.Location = new System.Drawing.Point(1031, 52);
+            this.gruposUsuarioDataGridView.Location = new System.Drawing.Point(1031, 95);
             this.gruposUsuarioDataGridView.Name = "gruposUsuarioDataGridView";
             this.gruposUsuarioDataGridView.ReadOnly = true;
             this.gruposUsuarioDataGridView.RowHeadersWidth = 51;
@@ -168,14 +114,14 @@
             // 
             // textBoxGestaoUsuario
             // 
-            this.textBoxGestaoUsuario.Location = new System.Drawing.Point(12, 24);
+            this.textBoxGestaoUsuario.Location = new System.Drawing.Point(9, 66);
             this.textBoxGestaoUsuario.Name = "textBoxGestaoUsuario";
             this.textBoxGestaoUsuario.Size = new System.Drawing.Size(689, 22);
             this.textBoxGestaoUsuario.TabIndex = 3;
             // 
             // buttonBuscar
             // 
-            this.buttonBuscar.Location = new System.Drawing.Point(707, 23);
+            this.buttonBuscar.Location = new System.Drawing.Point(704, 65);
             this.buttonBuscar.Name = "buttonBuscar";
             this.buttonBuscar.Size = new System.Drawing.Size(75, 23);
             this.buttonBuscar.TabIndex = 4;
@@ -185,7 +131,7 @@
             // 
             // buttonAlterar
             // 
-            this.buttonAlterar.Location = new System.Drawing.Point(788, 24);
+            this.buttonAlterar.Location = new System.Drawing.Point(785, 66);
             this.buttonAlterar.Name = "buttonAlterar";
             this.buttonAlterar.Size = new System.Drawing.Size(75, 23);
             this.buttonAlterar.TabIndex = 4;
@@ -195,7 +141,7 @@
             // 
             // buttonAdicionarUsuario
             // 
-            this.buttonAdicionarUsuario.Location = new System.Drawing.Point(869, 23);
+            this.buttonAdicionarUsuario.Location = new System.Drawing.Point(866, 65);
             this.buttonAdicionarUsuario.Name = "buttonAdicionarUsuario";
             this.buttonAdicionarUsuario.Size = new System.Drawing.Size(75, 23);
             this.buttonAdicionarUsuario.TabIndex = 4;
@@ -205,7 +151,7 @@
             // 
             // buttonExcluirUsuario
             // 
-            this.buttonExcluirUsuario.Location = new System.Drawing.Point(950, 23);
+            this.buttonExcluirUsuario.Location = new System.Drawing.Point(947, 65);
             this.buttonExcluirUsuario.Name = "buttonExcluirUsuario";
             this.buttonExcluirUsuario.Size = new System.Drawing.Size(75, 23);
             this.buttonExcluirUsuario.TabIndex = 4;
@@ -215,7 +161,7 @@
             // 
             // buttonExcluirGrupoUsuario
             // 
-            this.buttonExcluirGrupoUsuario.Location = new System.Drawing.Point(1382, 24);
+            this.buttonExcluirGrupoUsuario.Location = new System.Drawing.Point(1382, 66);
             this.buttonExcluirGrupoUsuario.Name = "buttonExcluirGrupoUsuario";
             this.buttonExcluirGrupoUsuario.Size = new System.Drawing.Size(75, 23);
             this.buttonExcluirGrupoUsuario.TabIndex = 4;
@@ -225,13 +171,67 @@
             // 
             // buttonAdicionarGrupoUsuario
             // 
-            this.buttonAdicionarGrupoUsuario.Location = new System.Drawing.Point(1301, 23);
+            this.buttonAdicionarGrupoUsuario.Location = new System.Drawing.Point(1301, 66);
             this.buttonAdicionarGrupoUsuario.Name = "buttonAdicionarGrupoUsuario";
             this.buttonAdicionarGrupoUsuario.Size = new System.Drawing.Size(75, 23);
             this.buttonAdicionarGrupoUsuario.TabIndex = 4;
             this.buttonAdicionarGrupoUsuario.Text = "Adicionar";
             this.buttonAdicionarGrupoUsuario.UseVisualStyleBackColor = true;
             this.buttonAdicionarGrupoUsuario.Click += new System.EventHandler(this.buttonAdicionarGrupoUsuario_Click);
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "Id";
+            this.dataGridViewTextBoxColumn1.HeaderText = "Id";
+            this.dataGridViewTextBoxColumn1.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.Width = 47;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "Nome";
+            this.dataGridViewTextBoxColumn2.HeaderText = "Nome";
+            this.dataGridViewTextBoxColumn2.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            this.dataGridViewTextBoxColumn2.Width = 200;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "NomeUsuario";
+            this.dataGridViewTextBoxColumn3.HeaderText = "Nome de Usuário";
+            this.dataGridViewTextBoxColumn3.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            this.dataGridViewTextBoxColumn3.Width = 147;
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.DataPropertyName = "Email";
+            this.dataGridViewTextBoxColumn5.HeaderText = "E-mail";
+            this.dataGridViewTextBoxColumn5.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.ReadOnly = true;
+            this.dataGridViewTextBoxColumn5.Width = 200;
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.DataPropertyName = "CPF";
+            this.dataGridViewTextBoxColumn6.HeaderText = "CPF";
+            this.dataGridViewTextBoxColumn6.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.ReadOnly = true;
+            this.dataGridViewTextBoxColumn6.Width = 85;
+            // 
+            // dataGridViewCheckBoxColumn1
+            // 
+            this.dataGridViewCheckBoxColumn1.DataPropertyName = "Ativo";
+            this.dataGridViewCheckBoxColumn1.HeaderText = "Ativo";
+            this.dataGridViewCheckBoxColumn1.MinimumWidth = 6;
+            this.dataGridViewCheckBoxColumn1.Name = "dataGridViewCheckBoxColumn1";
+            this.dataGridViewCheckBoxColumn1.ReadOnly = true;
+            this.dataGridViewCheckBoxColumn1.Width = 47;
             // 
             // FormBuscarUsuario
             // 
@@ -275,13 +275,13 @@
         private System.Windows.Forms.Button buttonExcluirUsuario;
         private System.Windows.Forms.Button buttonExcluirGrupoUsuario;
         private System.Windows.Forms.Button buttonAdicionarGrupoUsuario;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nomeGrupoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.BindingSource gruposUsuariosBindingSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
         private System.Windows.Forms.DataGridViewCheckBoxColumn dataGridViewCheckBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nomeGrupoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.BindingSource gruposUsuariosBindingSource;
     }
 }

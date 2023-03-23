@@ -30,19 +30,32 @@ namespace WindowsFormsAppPrinciapal
         }
         private void buttonSalvar_Click(object sender, EventArgs e)
         {
-            UsuarioBLL usuarioBLL = new UsuarioBLL();
-                usuarioBindingSource.EndEdit();
-            if(Id == 0) 
-                usuarioBLL.Inserir((Usuario)usuarioBindingSource.Current);
-            else
-                usuarioBLL.Alterar((Usuario)usuarioBindingSource.Current);
+            try
+            {
+                UsuarioBLL usuarioBLL = new UsuarioBLL();
+                    usuarioBindingSource.EndEdit();
+                if(Id == 0) 
+                    usuarioBLL.Inserir((Usuario)usuarioBindingSource.Current, textBoxConfirmarSenha.Text);
+                else
+                    usuarioBLL.Alterar((Usuario)usuarioBindingSource.Current, textBoxConfirmarSenha.Text);
 
-            MessageBox.Show("Registro salvo com sucesso!");
-            Close();
+                MessageBox.Show("Registro salvo com sucesso!");
+                Close();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
         private void buttonCancelar_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void senhaTextBox_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
