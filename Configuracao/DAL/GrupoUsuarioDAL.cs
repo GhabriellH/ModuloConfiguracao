@@ -93,6 +93,7 @@ namespace DAL
                         grupoUsuario = new GrupoUsuario();
                         grupoUsuario.Id = Convert.ToInt32(rd["Id"]);
                         grupoUsuario.NomeGrupo = rd["NomeGrupo"].ToString();
+                        grupoUsuario.Permissoes = new PermissaoDAL().BuscarporIdGrupoUsuario(grupoUsuario.Id);
                         grupoUsuarios.Add(grupoUsuario);
                     }
                 }
@@ -210,6 +211,87 @@ namespace DAL
             {
 
                 throw new Exception("Ocorreu um erro ao tentar buscar os grupos de usuários por id do banco de dados", ex);
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
+
+        public bool PermissaoPertenceAoGrupo(int _idGrupoUsuario, int _idPermissao)
+        {
+            try
+            {
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = cn;
+                cmd.CommandText = @"SELECT 1 FROM PermissaoGrupoUsuario
+                                    WHERE IdPermissao = @IdPermissao AND IdGrupoUsuario = @IdGrupoUsuario";
+                cmd.CommandType = System.Data.CommandType.Text;
+
+                cmd.Parameters.AddWithValue("@IdGrupoUsuario", _idGrupoUsuario);
+                cmd.Parameters.AddWithValue("@IdPermissao", _idPermissao);
+                cn.Open();
+                using (SqlDataReader rd = cmd.ExecuteReader())
+                {
+                    if (rd.Read())
+                        return true;
+                }
+                return false;
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception("Ocorreu um erro ao tentar existência de permissao vinculado a um grupo no banco de dados", ex);
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
+
+        public void AdicionarPermissao(int _idGrupoUsuario, int _idPermissao)
+        {
+            try
+            {
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = cn;
+                cmd.CommandText = @"INSERT INTO PermissaoGrupoUsuario(IdPermissao, IdGrupoUsuario) 
+                                    VALUES(@IdPermissao, @IdGrupoUsuario)";
+                cmd.CommandType = System.Data.CommandType.Text;
+
+                cmd.Parameters.AddWithValue("@IdPermissao", _idPermissao);
+                cmd.Parameters.AddWithValue("@IdGrupoUsuario", _idGrupoUsuario);
+                cn.Open();
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Ocorreu um erro ao tentar vincular uma permissao a um grupo no banco de dados", ex);
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
+
+        public void RemoverPermissao(int _idPermissao, int _idGrupoUsuario)
+        {
+            SqlConnection cn = new SqlConnection(Conexao.StringDeConexao);
+            try
+            {
+                SqlCommand cmd = cn.CreateCommand();
+                cmd.CommandText = @"DELETE FROM PermissaoGrupoUsuario 
+                                    WHERE IdPermissao = @IdPermissao AND IdGrupoUsuario = @IdGrupoUsuario";
+                cmd.CommandType = System.Data.CommandType.Text;
+                cmd.Parameters.AddWithValue("@IdUsuario", _idPermissao);
+                cmd.Parameters.AddWithValue("@IdGrupoUsuario", _idGrupoUsuario);
+                cmd.Connection = cn;
+                cn.Open();
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Ocorreu erro ao tentar remover uma permissao de um grupo no banco de dados", ex);
             }
             finally
             {

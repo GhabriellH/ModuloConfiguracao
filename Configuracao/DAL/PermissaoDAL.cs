@@ -173,5 +173,44 @@ namespace DAL
                 cn.Close();
             }
         }
+
+        internal List<Permissao> BuscarporIdGrupoUsuario(int _idGrupoUsuario)
+        {
+            Permissao permissao = new Permissao();
+            List<Permissao> permissoes = new List<Permissao>();
+            try
+            {
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = cn;
+                cmd.CommandText = @"SELECT Permissao.Id, Permissao.Descricao FROM Permissao
+                                    INNER JOIN PermissaoGrupoUsuario ON Permissao.Id = PermissaoGrupoUsuario.IdPermissao
+                                    WHERE PermissaoGrupoUsuario.IdGrupoUsuario = @IdGrupoUsuario";
+                cmd.CommandType = System.Data.CommandType.Text;
+
+                cmd.Parameters.AddWithValue("@idGrupoUsuario", _idGrupoUsuario);
+                cn.Open();
+                using (SqlDataReader rd = cmd.ExecuteReader())
+                {
+                    while (rd.Read())
+                    {
+                        permissao = new Permissao();
+                        permissao.Id = Convert.ToInt32(rd["ID"]);
+                        permissao.Descricao = rd["Descricao"].ToString();
+                        permissoes.Add(permissao);
+
+                    }
+                }
+                return permissoes;
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception("Ocorreu um erro ao tentar buscar as permissões de usuários por id do banco de dados", ex);
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
     }
 }

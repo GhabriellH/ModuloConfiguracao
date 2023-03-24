@@ -37,5 +37,10 @@ namespace BLL
         {
             return new GrupoUsuarioDAL().BuscarPorId(_id);
         }
+
+        public void RemoverPermissao(int _idPermissao, int _idGrupoUsuario)
+        {
+            new GrupoUsuarioDAL().RemoverPermissao(_idPermissao, _idGrupoUsuario);
+        }
     }
 }

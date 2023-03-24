@@ -14,6 +14,7 @@ namespace WindowsFormsAppPrinciapal
 {
     public partial class FormBuscarGrupoUsuario : Form
     {
+        
         public FormBuscarGrupoUsuario()
         {
             InitializeComponent();
@@ -63,6 +64,43 @@ namespace WindowsFormsAppPrinciapal
             grupoUsuarioBindingSource.RemoveCurrent();
 
             MessageBox.Show("Registro excluido com sucesso!");
+        }
+
+        private void buttonAdicionarPermissao_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                using (FormConsultaPermissao frm = new FormConsultaPermissao())
+                {
+                    frm.ShowDialog();
+
+                    if (frm.Id != 0)
+                    {
+                        int idGrupoUsuario = ((Permissao)permissoesBindingSource.Current).Id;
+                        new PermissaoBLL().AdicionarPermissao(idGrupoUsuario, frm.Id);
+                    }
+                }
+                buttonBuscarGU_Click(null, null);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void buttonExcluirPermissao_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int idGrupoUsuario = ((GrupoUsuario)grupoUsuarioBindingSource.Current).Id;
+                int idPermissao = ((Permissao)permissoesBindingSource.Current).Id;
+                new GrupoUsuarioBLL().RemoverPermissao(idPermissao, idGrupoUsuario);
+                grupoUsuarioBindingSource.RemoveCurrent();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }
