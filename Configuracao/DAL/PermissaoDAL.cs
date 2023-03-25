@@ -126,6 +126,7 @@ namespace DAL
                         permissao = new Permissao();
                         permissao.Id = Convert.ToInt32(rd["Id"]);
                         permissao.Descricao = rd["Descricao"].ToString();
+                        
                     }
                 }
                 return permissao;

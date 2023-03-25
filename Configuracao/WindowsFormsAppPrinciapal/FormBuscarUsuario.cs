@@ -98,7 +98,7 @@ namespace WindowsFormsAppPrinciapal
 
         private void buttonAdicionarGrupoUsuario_Click(object sender, EventArgs e)
         {
-            try
+             try
             {
                 using(FormConsultaGrupoUsuario frm = new FormConsultaGrupoUsuario())
                 {

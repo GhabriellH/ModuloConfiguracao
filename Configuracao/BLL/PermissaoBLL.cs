@@ -7,6 +7,7 @@ namespace BLL
 {
     public class PermissaoBLL
     {
+        public int Id;
         private void ValidarDados(Permissao _permissao)
         {
             if (_permissao.Descricao.Length <= 10)
@@ -24,7 +25,7 @@ namespace BLL
         {
             new PermissaoDAL().Excluir(_id);
         }
-        public List<Permissao> BuscarTodos()
+        public List<Permissao> BuscarTodos(string _descricao)
         {
             return new PermissaoDAL().BuscarTodos();
         }
