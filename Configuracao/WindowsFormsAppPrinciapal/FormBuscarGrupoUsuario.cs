@@ -96,6 +96,7 @@ namespace WindowsFormsAppPrinciapal
                 int idPermissao = ((Permissao)permissoesBindingSource.Current).Id;
                 new GrupoUsuarioBLL().RemoverPermissao(idPermissao, idGrupoUsuario);
                 grupoUsuarioBindingSource.RemoveCurrent();
+                MessageBox.Show("Registro excluido com sucesso!");
             }
             catch (Exception ex)
             {

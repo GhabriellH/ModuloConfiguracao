@@ -43,5 +43,6 @@ namespace BLL
             if (!new GrupoUsuarioDAL().PermissaoPertenceAoGrupo(_idGrupoUsuario, _idPermissao))
                 new GrupoUsuarioDAL().AdicionarPermissao(_idGrupoUsuario, _idPermissao);
         }
+
     }
 }
