@@ -100,7 +100,7 @@ namespace WindowsFormsAppPrinciapal
         {
              try
             {
-                using(FormConsultaGrupoUsuario frm = new FormConsultaGrupoUsuario())
+                using (FormConsultaGrupoUsuario frm = new FormConsultaGrupoUsuario()) 
                 {
                     frm.ShowDialog();
 

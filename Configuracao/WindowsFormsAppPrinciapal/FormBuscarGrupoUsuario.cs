@@ -76,8 +76,8 @@ namespace WindowsFormsAppPrinciapal
 
                     if (frm.Id != 0)
                     {
-                        int idGrupoUsuario = ((Permissao)permissoesBindingSource.Current).Id;
-                        new PermissaoBLL().AdicionarPermissao(idGrupoUsuario, frm.Id);
+                        int idGrupoUsuario = ((GrupoUsuario)grupoUsuarioBindingSource.Current).Id;
+                        new GrupoUsuarioBLL().AdicionarPermissao(idGrupoUsuario, frm.Id);
                     }
                 }
                 buttonBuscarGU_Click(null, null);
