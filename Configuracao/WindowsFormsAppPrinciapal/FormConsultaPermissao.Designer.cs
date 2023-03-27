@@ -62,7 +62,7 @@
             this.permissaoDataGridView.RowHeadersWidth = 51;
             this.permissaoDataGridView.RowTemplate.Height = 24;
             this.permissaoDataGridView.Size = new System.Drawing.Size(776, 303);
-            this.permissaoDataGridView.TabIndex = 1;
+            this.permissaoDataGridView.TabIndex = 6;
             // 
             // dataGridViewTextBoxColumn2
             // 
@@ -78,18 +78,17 @@
             this.buttonCancelarPe.Location = new System.Drawing.Point(711, 422);
             this.buttonCancelarPe.Name = "buttonCancelarPe";
             this.buttonCancelarPe.Size = new System.Drawing.Size(75, 23);
-            this.buttonCancelarPe.TabIndex = 2;
+            this.buttonCancelarPe.TabIndex = 5;
             this.buttonCancelarPe.Text = "Cancelar";
             this.buttonCancelarPe.UseVisualStyleBackColor = true;
             this.buttonCancelarPe.Click += new System.EventHandler(this.buttonCancelarPe_Click);
-
             // 
             // buttonSelecionarPe
             // 
             this.buttonSelecionarPe.Location = new System.Drawing.Point(612, 422);
             this.buttonSelecionarPe.Name = "buttonSelecionarPe";
             this.buttonSelecionarPe.Size = new System.Drawing.Size(93, 23);
-            this.buttonSelecionarPe.TabIndex = 2;
+            this.buttonSelecionarPe.TabIndex = 4;
             this.buttonSelecionarPe.Text = "Selecionar";
             this.buttonSelecionarPe.UseVisualStyleBackColor = true;
             this.buttonSelecionarPe.Click += new System.EventHandler(this.buttonSelecionarPe_Click);
@@ -99,7 +98,7 @@
             this.buttonBuscarPe.Location = new System.Drawing.Point(711, 84);
             this.buttonBuscarPe.Name = "buttonBuscarPe";
             this.buttonBuscarPe.Size = new System.Drawing.Size(75, 23);
-            this.buttonBuscarPe.TabIndex = 2;
+            this.buttonBuscarPe.TabIndex = 3;
             this.buttonBuscarPe.Text = "Buscar";
             this.buttonBuscarPe.UseVisualStyleBackColor = true;
             this.buttonBuscarPe.Click += new System.EventHandler(this.buttonBuscarPe_Click);
@@ -109,7 +108,7 @@
             this.textBoxBuscarPermissao.Location = new System.Drawing.Point(12, 84);
             this.textBoxBuscarPermissao.Name = "textBoxBuscarPermissao";
             this.textBoxBuscarPermissao.Size = new System.Drawing.Size(693, 22);
-            this.textBoxBuscarPermissao.TabIndex = 3;
+            this.textBoxBuscarPermissao.TabIndex = 2;
             // 
             // label1
             // 
@@ -118,7 +117,7 @@
             this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(800, 56);
-            this.label1.TabIndex = 4;
+            this.label1.TabIndex = 0;
             this.label1.Text = "Consultar Permissões";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -128,7 +127,7 @@
             this.label2.Location = new System.Drawing.Point(21, 65);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(185, 16);
-            this.label2.TabIndex = 4;
+            this.label2.TabIndex = 1;
             this.label2.Text = "Informe o nome da permissão";
             // 
             // FormConsultaPermissao
