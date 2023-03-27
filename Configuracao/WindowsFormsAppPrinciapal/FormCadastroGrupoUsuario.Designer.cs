@@ -80,6 +80,7 @@
             this.buttonExcluirGU.Text = "Excluir";
             this.buttonExcluirGU.UseVisualStyleBackColor = true;
             this.buttonExcluirGU.Click += new System.EventHandler(this.buttonExcluirGU_Click);
+
             // 
             // buttonSalvarGU
             // 
@@ -111,6 +112,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cadastro de grupo";
             this.Load += new System.EventHandler(this.FormCadastroGrupoUsuario_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FormCadastroGrupoUsuario_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.grupoUsuarioBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -52,10 +52,10 @@ namespace WindowsFormsAppPrinciapal
         {
             Close();
         }
-
-        private void senhaTextBox_TextChanged(object sender, EventArgs e)
+        private void FormCadastroUsuario_KeyDown(object sender, KeyEventArgs e)
         {
-
+            if (e.KeyCode == Keys.Escape)
+                Close();
         }
     }
 }

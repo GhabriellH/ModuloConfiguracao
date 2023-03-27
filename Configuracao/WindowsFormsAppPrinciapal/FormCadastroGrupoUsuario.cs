@@ -46,5 +46,10 @@ namespace WindowsFormsAppPrinciapal
         {
             Close();
         }
+        private void FormCadastroGrupoUsuario_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+                Close();
+        }
     }
 }

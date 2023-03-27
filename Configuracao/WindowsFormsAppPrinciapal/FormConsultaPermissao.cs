@@ -24,7 +24,7 @@ namespace WindowsFormsAppPrinciapal
         {
             try
             {
-                permissaoBindingSource.DataSource = new PermissaoBLL().BuscarTodos(textBoxBuscarPermissao.Text);
+                permissaoBindingSource.DataSource = new PermissaoBLL().BuscarPorDescricao(textBoxBuscarPermissao.Text);
             }
             catch (Exception ex)
             {
@@ -52,6 +52,10 @@ namespace WindowsFormsAppPrinciapal
         {
             Close();
         }
-
+        private void FormConsultaPermissao_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+                Close();
+        }
     }
 }

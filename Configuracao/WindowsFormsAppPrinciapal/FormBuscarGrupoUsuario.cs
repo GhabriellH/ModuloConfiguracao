@@ -95,13 +95,19 @@ namespace WindowsFormsAppPrinciapal
                 int idGrupoUsuario = ((GrupoUsuario)grupoUsuarioBindingSource.Current).Id;
                 int idPermissao = ((Permissao)permissoesBindingSource.Current).Id;
                 new GrupoUsuarioBLL().RemoverPermissao(idPermissao, idGrupoUsuario);
-                grupoUsuarioBindingSource.RemoveCurrent();
+                permissoesBindingSource.RemoveCurrent();
                 MessageBox.Show("Registro excluido com sucesso!");
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void FormBuscarGrupoUsuario_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+                Close();
         }
     }
 }

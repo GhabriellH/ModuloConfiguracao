@@ -12,7 +12,7 @@ namespace DAL
         public void Inserir(Permissao _permissao)
         {
             try
-            {   
+            {
                 SqlCommand cmd = cn.CreateCommand();
                 cmd.CommandText = @"INSERT INTO Permissao(Descricao)
                                     VALUES(@Descricao)";
@@ -107,29 +107,31 @@ namespace DAL
                 cn.Close();
             }
         }
-        public Permissao BuscarPorDescricao(string _descricao)
+        public List<Permissao> BuscarPorDescricao(string _descricao)
         {
             Permissao permissao = new Permissao();
+            List<Permissao> permissoes = new List<Permissao>();
+
             try
             {
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = cn;
-                cmd.CommandText = "SELECT Id, Descricao FROM Permissao WHERE Descricao = @Descricao";
+                cmd.CommandText = "SELECT Id, Descricao FROM Permissao WHERE Descricao LIKE @Descricao";
                 cmd.CommandType = System.Data.CommandType.Text;
 
-                cmd.Parameters.AddWithValue("@Descricao", _descricao);
+                cmd.Parameters.AddWithValue("@Descricao", "%" + _descricao + "%");
                 cn.Open();
                 using (SqlDataReader rd = cmd.ExecuteReader())
                 {
-                    if (rd.Read())
+                    while (rd.Read())
                     {
                         permissao = new Permissao();
                         permissao.Id = Convert.ToInt32(rd["Id"]);
                         permissao.Descricao = rd["Descricao"].ToString();
-                        
+                        permissoes.Add(permissao);
                     }
                 }
-                return permissao;
+                return permissoes;
             }
             catch (Exception ex)
             {

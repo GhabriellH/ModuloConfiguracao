@@ -283,7 +283,7 @@ namespace DAL
                 cmd.CommandText = @"DELETE FROM PermissaoGrupoUsuario 
                                     WHERE IdPermissao = @IdPermissao AND IdGrupoUsuario = @IdGrupoUsuario";
                 cmd.CommandType = System.Data.CommandType.Text;
-                cmd.Parameters.AddWithValue("@IdUsuario", _idPermissao);
+                cmd.Parameters.AddWithValue("@IdPermissao", _idPermissao);
                 cmd.Parameters.AddWithValue("@IdGrupoUsuario", _idGrupoUsuario);
                 cmd.Connection = cn;
                 cn.Open();

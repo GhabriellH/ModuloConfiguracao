@@ -45,8 +45,8 @@ namespace BLL
 
         public void AdicionarPermissao(int _idGrupoUsuario, int _idPermissao)
         {
-            if (!new GrupoUsuarioDAL().PermissaoPertenceAoGrupo(_idPermissao, _idGrupoUsuario))
-                new GrupoUsuarioDAL().AdicionarPermissao(_idPermissao, _idGrupoUsuario);
+            if (!new GrupoUsuarioDAL().PermissaoPertenceAoGrupo(_idGrupoUsuario, _idPermissao))
+                new GrupoUsuarioDAL().AdicionarPermissao(_idGrupoUsuario, _idPermissao);
         }
     }
 }

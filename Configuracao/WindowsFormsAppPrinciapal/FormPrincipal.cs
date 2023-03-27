@@ -37,7 +37,20 @@ namespace WindowsFormsAppPrinciapal
 
         private void FormPrincipal_Load(object sender, EventArgs e)
         {
-            Constantes.IdUsuarioLogado = 1;
+            try
+            {
+                using (FormLogin frm = new FormLogin())
+                {
+                    frm.ShowDialog();
+                    if (!frm.logou)
+                        Application.Exit();
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
     }
 }

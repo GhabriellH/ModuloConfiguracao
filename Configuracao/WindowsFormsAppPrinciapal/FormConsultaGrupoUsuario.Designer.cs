@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.grupoUsuarioDataGridView = new System.Windows.Forms.DataGridView();
+            this.NomeGrupo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.grupoUsuarioBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.buttonSelecionar = new System.Windows.Forms.Button();
             this.buttonCancelar = new System.Windows.Forms.Button();
@@ -37,7 +38,8 @@
             this.buttonBuscar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.NomeGrupo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nomeGrupoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.grupoUsuarioDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grupoUsuarioBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -50,7 +52,9 @@
             this.grupoUsuarioDataGridView.AutoGenerateColumns = false;
             this.grupoUsuarioDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grupoUsuarioDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.NomeGrupo});
+            this.NomeGrupo,
+            this.idDataGridViewTextBoxColumn,
+            this.nomeGrupoDataGridViewTextBoxColumn});
             this.grupoUsuarioDataGridView.DataSource = this.grupoUsuarioBindingSource;
             this.grupoUsuarioDataGridView.Location = new System.Drawing.Point(12, 104);
             this.grupoUsuarioDataGridView.Name = "grupoUsuarioDataGridView";
@@ -59,6 +63,15 @@
             this.grupoUsuarioDataGridView.RowTemplate.Height = 24;
             this.grupoUsuarioDataGridView.Size = new System.Drawing.Size(789, 300);
             this.grupoUsuarioDataGridView.TabIndex = 1;
+            // 
+            // NomeGrupo
+            // 
+            this.NomeGrupo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.NomeGrupo.DataPropertyName = "NomeGrupo";
+            this.NomeGrupo.HeaderText = "Grupos de usuário";
+            this.NomeGrupo.MinimumWidth = 6;
+            this.NomeGrupo.Name = "NomeGrupo";
+            this.NomeGrupo.ReadOnly = true;
             // 
             // grupoUsuarioBindingSource
             // 
@@ -83,6 +96,7 @@
             this.buttonCancelar.Text = "Cancelar";
             this.buttonCancelar.UseVisualStyleBackColor = true;
             this.buttonCancelar.Click += new System.EventHandler(this.buttonCancelar_Click);
+
             // 
             // textBoxBuscar
             // 
@@ -121,14 +135,23 @@
             this.label2.Text = "Consultar grupo de usuário";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // NomeGrupo
+            // idDataGridViewTextBoxColumn
             // 
-            this.NomeGrupo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.NomeGrupo.DataPropertyName = "NomeGrupo";
-            this.NomeGrupo.HeaderText = "Grupos de usuário";
-            this.NomeGrupo.MinimumWidth = 6;
-            this.NomeGrupo.Name = "NomeGrupo";
-            this.NomeGrupo.ReadOnly = true;
+            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
+            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
+            this.idDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            this.idDataGridViewTextBoxColumn.ReadOnly = true;
+            this.idDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // nomeGrupoDataGridViewTextBoxColumn
+            // 
+            this.nomeGrupoDataGridViewTextBoxColumn.DataPropertyName = "NomeGrupo";
+            this.nomeGrupoDataGridViewTextBoxColumn.HeaderText = "NomeGrupo";
+            this.nomeGrupoDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.nomeGrupoDataGridViewTextBoxColumn.Name = "nomeGrupoDataGridViewTextBoxColumn";
+            this.nomeGrupoDataGridViewTextBoxColumn.ReadOnly = true;
+            this.nomeGrupoDataGridViewTextBoxColumn.Width = 125;
             // 
             // FormConsultaGrupoUsuario
             // 
@@ -151,6 +174,7 @@
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Consultar grupos de usuário";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FormConsultaGrupoUsuario_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.grupoUsuarioDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grupoUsuarioBindingSource)).EndInit();
             this.ResumeLayout(false);
@@ -169,5 +193,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DataGridViewTextBoxColumn NomeGrupo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nomeGrupoDataGridViewTextBoxColumn;
     }
 }

@@ -25,11 +25,11 @@ namespace BLL
         {
             new PermissaoDAL().Excluir(_id);
         }
-        public List<Permissao> BuscarTodos(string _descricao)
+        public List<Permissao> BuscarTodos()
         {
             return new PermissaoDAL().BuscarTodos();
         }
-        public Permissao BuscarPorDescricao(string _descricao)
+        public List<Permissao> BuscarPorDescricao(string _descricao)
         {
             return new PermissaoDAL().BuscarPorDescricao(_descricao);
         }
@@ -37,12 +37,5 @@ namespace BLL
         {
             return new PermissaoDAL().BuscarPorId(_id);
         }
-
-        public void AdicionarPermissao(int _idGrupoUsuario, int _idPermissao)
-        {
-            if (!new GrupoUsuarioDAL().PermissaoPertenceAoGrupo(_idGrupoUsuario, _idPermissao))
-                new GrupoUsuarioDAL().AdicionarPermissao(_idGrupoUsuario, _idPermissao);
-        }
-
     }
 }
