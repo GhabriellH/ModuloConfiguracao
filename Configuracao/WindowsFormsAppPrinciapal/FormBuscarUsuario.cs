@@ -75,6 +75,8 @@ namespace WindowsFormsAppPrinciapal
         {
             try
             {
+                if (gruposUsuariosBindingSource.Count == 0)
+                    throw new Exception("Não existe grupo a ser excluido");
                 int idGrupoUsuario = ((GrupoUsuario)gruposUsuariosBindingSource.Current).Id;
                 int idUsuario = ((Usuario)usuarioBindingSource.Current).Id;
                 new UsuarioBLL().RemoverGrupoUsuario(idUsuario, idGrupoUsuario);
@@ -88,12 +90,22 @@ namespace WindowsFormsAppPrinciapal
 
         private void buttonAlterar_Click(object sender, EventArgs e)
         {
-            int id = ((Usuario)usuarioBindingSource.Current).Id;
-            using (FormCadastroUsuario frm = new FormCadastroUsuario(id))
+            try
             {
-                frm.ShowDialog();
+                if (usuarioBindingSource.Count == 0)
+                    throw new Exception("Não existe registro a ser alterado");
+      
+                int id = ((Usuario)usuarioBindingSource.Current).Id;
+                using (FormCadastroUsuario frm = new FormCadastroUsuario(id))
+                {
+                    frm.ShowDialog();
+                }
+                buttonBuscar_Click(null, null);
             }
-            buttonBuscar_Click(null, null);
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void buttonAdicionarGrupoUsuario_Click(object sender, EventArgs e)

@@ -92,6 +92,9 @@ namespace WindowsFormsAppPrinciapal
         {
             try
             {
+                if (permissoesBindingSource.Count == 0)
+                    throw new Exception("Não existe permissão a ser ecxluida.");
+
                 int idGrupoUsuario = ((GrupoUsuario)grupoUsuarioBindingSource.Current).Id;
                 int idPermissao = ((Permissao)permissoesBindingSource.Current).Id;
                 new GrupoUsuarioBLL().RemoverPermissao(idPermissao, idGrupoUsuario);
